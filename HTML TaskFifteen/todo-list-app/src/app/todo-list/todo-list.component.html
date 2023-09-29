@@ -1,0 +1,17 @@
+<div class="container">
+  <h1 class="text-center">To-Do List</h1>
+
+  <input [(ngModel)]="newTodo" class="form-control" placeholder="Add a new todo">
+  <button (click)="addTodo()" class="btn btn-primary">Add</button>
+
+  <input [(ngModel)]="searchTerm" class="form-control mt-2" placeholder="Search todos">
+
+  <ul class="list-group mt-2">
+    <li *ngFor="let todo of filteredTodos" class="list-group-item">
+      {{ todo.text }}
+      <button *ngIf="!todo.completed" (click)="completeTodo(todo)" class="btn btn-danger btn-sm float-right">Complete</button>
+    </li>
+  </ul>
+
+  <p class="mt-2">Number of todos: {{ filteredTodoCount }}</p>
+</div>
